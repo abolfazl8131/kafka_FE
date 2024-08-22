@@ -5,6 +5,8 @@ services:
     image: confluentinc/cp-zookeeper:7.3.2
     hostname: zoo2
     container_name: zoo2
+    
+
     ports:
       - "2181:2181"
     environment:
@@ -16,6 +18,7 @@ services:
     image: confluentinc/cp-kafka:7.3.2
     hostname: kafka2
     container_name: kafka2
+    
     ports:
       - "9092:9092"
       - "29092:29092"
@@ -38,28 +41,28 @@ services:
     depends_on:
       - zoo1
 
-  kafka_producer:
-    build: ./kafka_producer_service
-    container_name: kafka_producer
-      
-  mongo_writer:
-    build: ./mongo_writer_service
-    container_name: mongo_writer
+  
+  mongo:
+    image: mongo
+    hostname: kafka_st
+    restart: always
+    volumes:
+      - './data:/data/db'
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: test
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
 
-  spark_streamer:
-    build: ./spark_streamer_service
-    container_name: spark_streamer
-
-  sql_analytics:
-    build: ./sql_analytics_service
-    container_name: sql_analytics
-
+  
   web:
     build: ./web
     container_name: web_fastapi
     ports:
       - "8000:8000"
     depends_on:
+      
       - kafka1
 
 

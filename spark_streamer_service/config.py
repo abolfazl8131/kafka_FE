@@ -3,8 +3,8 @@ config = {
     'mongo': {
         'host':'localhost',
         'port':27017,
-        'db':'kafka-st',
-        'sparkuri':'mongodb://localhost:27017/kafka-st.test'
+        'db':'test',
+        'sparkuri':'mongodb://localhost:27017/test.test'
     },
     'kafka':{
         'host':'localhost',
