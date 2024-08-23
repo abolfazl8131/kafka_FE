@@ -42,7 +42,7 @@ services:
       - zoo1
 
   
-  mongo:
+  mongo1:
     image: mongo
     hostname: kafka_st
     restart: always
@@ -56,14 +56,14 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: admin
 
   
-  web:
-    build: ./web
-    container_name: web_fastapi
-    ports:
-      - "8000:8000"
-    depends_on:
+  # web:
+  #   build: ./web
+  #   container_name: web_fastapi
+  #   ports:
+  #     - "8000:8000"
+  #   depends_on:
       
-      - kafka1
+  #     - kafka1
 
 
 

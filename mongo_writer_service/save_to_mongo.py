@@ -4,7 +4,7 @@ from con import get_consumer
 
 def get_mongo_client():
 
-    client = MongoClient(config['mongo']['host'], config['mongo']['port'],username='admin',password='admin')
+    client = MongoClient(config['mongo']['host'], config['mongo']['port'], username='admin', password='admin')
     
     return client
 

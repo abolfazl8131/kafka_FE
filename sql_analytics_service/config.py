@@ -1,16 +1,11 @@
+import os
 config = {
     
     'mongo': {
-        'host':'localhost',
+        'host':os.environ.get('MONGO_HOST'),
         'port':27017,
-        'db':'test',
-        'sparkuri':'mongodb://admin:admin@localhost:27017/test.test?authSource=admin'
+        'db':os.environ.get('DB'),
+        'uri':os.environ.get('CONNECTION_URL')
     },
-    'kafka':{
-        'host':'localhost',
-        'port':9092,
-        'group-id':'kafka-stream',
-        'topic':'AB123',
-        'topic2':'vis'
-    }
+  
 }
