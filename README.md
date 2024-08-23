@@ -7,7 +7,7 @@ here is a high-level implementation of it.
 
 Here you go! 
 
-## How to run that?
+## How to run?
 
 simply first create 'venv' using this command
 
